@@ -1,0 +1,15 @@
+/* V0.11 — 直播画面重心调整：左侧棋盘，右侧完整信息栏 */
+.hero-panel{justify-content:flex-start;margin-bottom:18px;padding-bottom:10px}.hero-copy{width:100%}.side-panel{gap:16px}
+.side-tools{padding:14px 16px;background:linear-gradient(135deg,#fffaf0,#fff1c9)}
+.side-tools .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+.side-tools .ghost-button{width:100%;min-height:54px;padding:11px 12px;font-size:19px}
+.challenge-card{padding:18px 20px 20px;background:linear-gradient(145deg,#fff8d6,#ffd72e 72%,#ffb42e);overflow:hidden}
+.challenge-card::after{content:"WIN ONE";position:absolute;right:12px;bottom:4px;font-size:48px;line-height:1;font-weight:1000;color:rgba(23,23,23,.07);transform:rotate(-7deg);pointer-events:none}
+.challenge-card .section-heading{position:relative;z-index:2;margin-bottom:14px}.challenge-card .section-heading h3{font-size:27px}
+.challenge-card .challenge-hard{display:inline-flex;align-items:center;padding:5px 9px;border:3px solid var(--ink);background:#171717;color:#ffd72e;box-shadow:3px 3px 0 #ff4d32;font-size:16px;font-weight:1000;transform:rotate(-1deg)}
+.challenge-summary{position:relative;z-index:2;display:grid;gap:7px;margin-bottom:14px}.challenge-summary .challenge-goal{width:fit-content;padding:5px 10px;border:3px solid var(--ink);background:var(--paper);box-shadow:4px 4px 0 var(--ink);font-size:30px;line-height:1;font-weight:1000}.challenge-summary span{font-size:18px;line-height:1.3;font-weight:900}
+.challenge-stats{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:10px}.challenge-stat{display:grid;gap:4px;min-height:78px;padding:10px 12px;border:3px solid var(--ink);background:#fff;box-shadow:4px 4px 0 var(--ink)}.challenge-stat small{font-size:15px;font-weight:900;color:#6f665d}.challenge-stat b{font-size:22px;line-height:1.12;font-weight:1000}
+.challenge-note{position:relative;z-index:2;margin:13px 0 0;font-size:17px;line-height:1.35;font-weight:950;color:#8f2517}
+.side-panel .event-highlight{padding-top:18px}.side-panel .current-event{min-height:126px;padding:13px 0}.side-panel .current-event h2{font-size:34px}.side-panel .current-event p{font-size:20px}.side-panel .event-log li{font-size:20px}
+@media(max-width:1180px){.side-tools{grid-column:1/-1}.challenge-card{min-height:0}}
+@media(max-width:720px){.side-tools .hero-actions{grid-template-columns:1fr 1fr}.side-tools .ghost-button{font-size:15px;min-height:48px}.challenge-card .section-heading h3{font-size:24px}.challenge-summary .challenge-goal{font-size:27px}.challenge-summary span{font-size:17px}.challenge-stat b{font-size:19px}.challenge-note{font-size:16px}}
