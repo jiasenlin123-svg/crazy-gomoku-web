@@ -1,0 +1,163 @@
+/* V0.12 — 全屏直播构图：顶部压缩、棋盘左靠、状态轨利用棋盘右侧空白 */
+.hero-panel{
+  min-height:0;
+  margin-bottom:14px;
+  padding:2px 2px 10px;
+}
+.hero-copy{
+  display:flex;
+  align-items:flex-end;
+  gap:42px;
+  width:100%;
+}
+.hero-copy h1{
+  flex:0 0 auto;
+  font-size:clamp(62px,4.8vw,88px);
+}
+.hero-copy .subtitle{
+  margin:0 0 5px;
+  max-width:520px;
+  font-size:clamp(22px,1.55vw,29px);
+  line-height:1.25;
+}
+
+.game-layout{
+  grid-template-columns:minmax(0,1fr) 450px;
+  gap:22px;
+}
+.board-card{
+  padding:18px 22px 22px;
+}
+.chaos-panel{
+  margin:4px 0 14px;
+  padding:11px 14px;
+}
+.chaos-track{
+  height:20px;
+  margin-top:7px;
+}
+.chaos-caption{
+  margin-top:6px;
+}
+
+.play-stage{
+  display:grid;
+  grid-template-columns:minmax(0,800px) minmax(220px,1fr);
+  gap:24px;
+  align-items:start;
+}
+.board-zone{
+  min-width:0;
+}
+.board-zone .start-hint{
+  margin:2px auto 12px;
+}
+.board-zone .board-wrap{
+  width:min(66vh,780px);
+  max-width:100%;
+  margin:0;
+  padding:24px;
+}
+
+.board-status-rail{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  padding-top:54px;
+}
+.status-card{
+  position:relative;
+  display:grid;
+  gap:8px;
+  padding:18px 16px;
+  border:3px solid var(--ink);
+  background:#fff;
+  box-shadow:6px 6px 0 var(--ink);
+}
+.status-card::before{
+  display:block;
+  font-size:15px;
+  line-height:1;
+  font-weight:1000;
+  color:#6f665d;
+  letter-spacing:.04em;
+}
+.status-turn-card::before{content:"当前回合"}
+.status-rescue-card::before{content:"救命机会"}
+.status-card strong{
+  display:block;
+  font-size:clamp(31px,2.35vw,42px);
+  line-height:1.05;
+  font-weight:1000;
+  white-space:nowrap;
+}
+.status-turn-card{
+  background:linear-gradient(135deg,#fffaf0,#ffe9a8);
+  transform:rotate(-.6deg);
+}
+.status-rescue-card{
+  background:linear-gradient(135deg,#fff0ea,#ffc2ac);
+  transform:rotate(.5deg);
+}
+.status-rescue-card strong{
+  color:var(--red);
+}
+.status-rail-note{
+  padding:13px 14px;
+  border:3px dashed var(--ink);
+  background:var(--yellow);
+  font-size:17px;
+  line-height:1.35;
+  font-weight:950;
+}
+
+/* 右侧整体再紧凑一点，1080p 下保证四块信息都能完整出现 */
+.side-panel{gap:13px}
+.side-tools{padding:11px 13px}
+.side-tools .ghost-button{min-height:50px;font-size:18px}
+.challenge-card{padding:15px 17px 16px}
+.challenge-card .section-heading{margin-bottom:10px}
+.challenge-summary{margin-bottom:10px}
+.challenge-summary .challenge-goal{font-size:27px}
+.challenge-summary span{font-size:17px}
+.challenge-stat{min-height:68px;padding:8px 10px}
+.challenge-stat b{font-size:20px}
+.challenge-note{margin-top:10px;font-size:16px}
+.side-panel .event-highlight{padding:16px 18px}
+.side-panel .current-event{min-height:112px;padding:10px 0}
+.side-panel .current-event h2{font-size:31px}
+.side-panel .current-event p{font-size:18px}
+.side-panel .event-actions button{min-height:52px;font-size:19px}
+.replay-card{padding:16px 18px}
+.side-panel .event-log{margin-top:9px;gap:8px}
+.side-panel .event-log li{padding:9px 11px;font-size:18px}
+
+@media(max-width:1450px){
+  .game-layout{grid-template-columns:minmax(0,1fr) 400px}
+  .play-stage{grid-template-columns:minmax(0,720px) minmax(190px,1fr);gap:18px}
+  .board-zone .board-wrap{width:min(63vh,720px)}
+  .status-card strong{font-size:31px}
+}
+
+@media(max-width:1180px){
+  .hero-copy{gap:24px}
+  .game-layout{grid-template-columns:1fr}
+  .play-stage{grid-template-columns:1fr}
+  .board-zone .board-wrap{margin:0 auto}
+  .board-status-rail{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    padding-top:0;
+  }
+  .status-rail-note{grid-column:1/-1}
+}
+
+@media(max-width:720px){
+  .hero-copy{display:block}
+  .hero-copy .subtitle{margin:8px 0 0}
+  .play-stage{display:block}
+  .board-status-rail{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .status-card{padding:12px 10px}
+  .status-card strong{font-size:24px;white-space:normal}
+  .status-rail-note{font-size:15px}
+}
