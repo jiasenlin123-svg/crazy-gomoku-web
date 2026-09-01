@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#ffd72e" />
   <title>疯狂五子棋｜挑战赢一把｜困难模式</title>
   <link rel="stylesheet" href="app.css" />
+  <link rel="stylesheet" href="layout-v11.css" />
 </head>
 <body>
   <main class="app-shell">
@@ -13,17 +14,6 @@
       <div class="hero-copy">
         <h1><span>疯狂</span>五子棋</h1>
         <p class="subtitle"><b>意外负责搞事，</b>你负责翻盘。</p>
-        <div class="challenge-strip">
-          <span class="challenge-goal">🎯 挑战：赢一把</span>
-          <span class="challenge-hard">☠ 困难挑战</span>
-          <span id="challengeAttempt" class="challenge-record">第 1 次挑战</span>
-          <span id="challengeRecord" class="challenge-record">0 胜 / 0 负</span>
-        </div>
-        <p class="hard-note">⚠ 系统会更偏向给你负面事件 · 化解意外会让疯狂值额外上涨</p>
-      </div>
-      <div class="hero-actions">
-        <button id="soundBtn" class="ghost-button sound-button" aria-pressed="true">📢 离谱音效 ON</button>
-        <button id="restartBtn" class="ghost-button restart-button">↻ 重开</button>
       </div>
     </section>
 
@@ -58,6 +48,35 @@
       </div>
 
       <aside class="side-panel">
+        <section class="event-card side-tools">
+          <div class="hero-actions">
+            <button id="soundBtn" class="ghost-button sound-button" aria-pressed="true">📢 离谱音效 ON</button>
+            <button id="restartBtn" class="ghost-button restart-button">↻ 重开</button>
+          </div>
+        </section>
+
+        <section class="event-card challenge-card">
+          <div class="section-heading">
+            <h3>🎯 挑战信息</h3>
+            <span class="challenge-hard">☠ 困难</span>
+          </div>
+          <div class="challenge-summary">
+            <strong class="challenge-goal">赢一把</strong>
+            <span>系统会更偏向给你负面事件</span>
+          </div>
+          <div class="challenge-stats">
+            <div class="challenge-stat">
+              <small>当前</small>
+              <b id="challengeAttempt">第 1 次挑战</b>
+            </div>
+            <div class="challenge-stat">
+              <small>战绩</small>
+              <b id="challengeRecord">0 胜 / 0 负</b>
+            </div>
+          </div>
+          <p class="challenge-note">⚠ 化解意外会让疯狂值额外上涨</p>
+        </section>
+
         <section class="event-card event-highlight">
           <div class="event-title-row">
             <span class="alert-title">🚨 当前状态</span>
