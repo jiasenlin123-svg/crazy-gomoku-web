@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="app.css" />
   <link rel="stylesheet" href="layout-v11.css" />
   <link rel="stylesheet" href="layout-v12.css" />
+  <link rel="stylesheet" href="items-v13.css" />
 </head>
 <body>
   <main class="app-shell">
@@ -52,7 +53,37 @@
             <div class="status-block rescue-status status-card status-rescue-card">
               <strong id="rescueLabel">🛠 化解 ×3</strong>
             </div>
-            <div class="status-rail-note">⚠ 疯狂值越高，负面意外越凶；关键时刻再用化解。</div>
+
+            <section class="item-rack" aria-label="救命道具">
+              <div class="item-rack-head">
+                <strong>🎒 救命道具</strong>
+                <span>不耗回合</span>
+              </div>
+              <div class="item-buttons">
+                <button id="itemSpray" class="item-button item-spray" type="button" title="疯狂值达到25%后可用">
+                  <span class="item-icon">🧯</span>
+                  <b>降温喷雾</b>
+                  <small>-15 疯狂值 · 25%后可用</small>
+                  <em id="itemSprayCount">×1</em>
+                </button>
+                <button id="itemIce" class="item-button item-ice" type="button" title="疯狂值达到45%后可用">
+                  <span class="item-icon">🧊</span>
+                  <b>冰镇汽水</b>
+                  <small>-25 疯狂值 · 45%后可用</small>
+                  <em id="itemIceCount">×1</em>
+                </button>
+                <button id="itemLucky" class="item-button item-lucky" type="button" title="疯狂值达到20%后可用">
+                  <span class="item-icon">🍀</span>
+                  <b>幸运护符</b>
+                  <small>-10 · 下一步事故率大降</small>
+                  <em id="itemLuckyCount">×1</em>
+                </button>
+              </div>
+              <div id="itemGuard" class="item-guard hidden">🍀 护符生效中：下一步事故概率大幅下降</div>
+              <p class="item-supply-note">🎁 疯狂值首次到 60% / 85% 时，会掉落一次随机补给。</p>
+            </section>
+
+            <div class="status-rail-note">⚠ 道具要留到关键时刻：疯狂时刻再降温，往往比开局乱用更值。</div>
           </div>
         </div>
       </div>
@@ -139,7 +170,7 @@
     </section>
   </div>
 
-  <script src="game.js"></script>
+  <script src="game-v13.js"></script>
   <script src="coords.js"></script>
 </body>
 </html>
