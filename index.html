@@ -7,6 +7,7 @@
   <title>疯狂五子棋｜挑战赢一把｜困难模式</title>
   <link rel="stylesheet" href="app.css" />
   <link rel="stylesheet" href="layout-v11.css" />
+  <link rel="stylesheet" href="layout-v12.css" />
 </head>
 <body>
   <main class="app-shell">
@@ -19,11 +20,6 @@
 
     <section class="game-layout">
       <div class="board-card">
-        <div class="status-row">
-          <div class="status-block"><strong id="turnLabel">⚫ 轮到你下</strong></div>
-          <div class="status-block rescue-status"><strong id="rescueLabel">🛠 化解 ×3</strong></div>
-        </div>
-
         <div class="chaos-panel hard-chaos">
           <div class="chaos-head">
             <span class="chaos-title">🔥 CHAOS 疯狂值</span>
@@ -33,16 +29,30 @@
           <p id="chaosCaption" class="chaos-caption">玩家意外约 37% · 负面事件权重更高</p>
         </div>
 
-        <div class="start-hint">👇 点棋盘交叉点，开始困难挑战</div>
-        <div class="board-wrap">
-          <div id="board" class="board" aria-label="15乘15五子棋棋盘"></div>
-          <div id="winOverlay" class="win-overlay hidden">
-            <div class="win-card">
-              <span id="winEmoji" class="win-emoji">🎉</span>
-              <h2 id="winTitle">挑战成功！</h2>
-              <p id="winText">终于赢下一把！</p>
-              <button id="overlayRestartBtn" class="primary-button">继续挑战</button>
+        <div class="play-stage">
+          <div class="board-zone">
+            <div class="start-hint">👇 点棋盘交叉点，开始困难挑战</div>
+            <div class="board-wrap">
+              <div id="board" class="board" aria-label="15乘15五子棋棋盘"></div>
+              <div id="winOverlay" class="win-overlay hidden">
+                <div class="win-card">
+                  <span id="winEmoji" class="win-emoji">🎉</span>
+                  <h2 id="winTitle">挑战成功！</h2>
+                  <p id="winText">终于赢下一把！</p>
+                  <button id="overlayRestartBtn" class="primary-button">继续挑战</button>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div class="board-status-rail">
+            <div class="status-block status-card status-turn-card">
+              <strong id="turnLabel">⚫ 轮到你下</strong>
+            </div>
+            <div class="status-block rescue-status status-card status-rescue-card">
+              <strong id="rescueLabel">🛠 化解 ×3</strong>
+            </div>
+            <div class="status-rail-note">⚠ 疯狂值越高，负面意外越凶；关键时刻再用化解。</div>
           </div>
         </div>
       </div>
