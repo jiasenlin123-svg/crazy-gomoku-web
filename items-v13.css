@@ -1,0 +1,19 @@
+/* V0.13 — 救命道具：让高难度变成可决策的高难度 */
+.board-status-rail{padding-top:28px;gap:11px}
+.status-card{padding:13px 14px}
+.status-card strong{font-size:clamp(27px,2vw,36px)}
+.status-rail-note{padding:9px 11px;font-size:14px}
+
+.item-rack{display:grid;gap:9px;padding:12px;border:3px solid var(--ink);background:linear-gradient(145deg,#effcff,#8fe3ff);box-shadow:6px 6px 0 var(--ink);transform:rotate(-.25deg)}
+.item-rack-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.item-rack-head strong{font-size:20px;font-weight:1000}.item-rack-head span{padding:4px 7px;border:2px solid var(--ink);background:#fff;font-size:12px;font-weight:1000}
+.item-buttons{display:grid;gap:7px}
+.item-button{position:relative;display:grid;grid-template-columns:34px 1fr auto;grid-template-areas:'icon name count' 'icon effect count';align-items:center;column-gap:8px;min-height:58px;padding:7px 9px;border:3px solid var(--ink);background:#fff;box-shadow:3px 3px 0 var(--ink);cursor:pointer;text-align:left;transition:transform .1s ease,opacity .15s ease}
+.item-button:hover:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}.item-button:disabled{opacity:.46;cursor:not-allowed}
+.item-button .item-icon{grid-area:icon;font-size:28px}.item-button b{grid-area:name;font-size:16px;line-height:1.05;font-weight:1000}.item-button small{grid-area:effect;font-size:12px;line-height:1.2;font-weight:850;color:#63584b}.item-button em{grid-area:count;min-width:37px;padding:5px 6px;border:2px solid var(--ink);background:var(--yellow);font-size:15px;font-style:normal;font-weight:1000;text-align:center}
+.item-button.item-ice{background:#f0fbff}.item-button.item-lucky{background:#f1ffe7}
+.item-guard{padding:8px 9px;border:3px solid var(--ink);background:#7ce66c;box-shadow:3px 3px 0 var(--ink);font-size:14px;line-height:1.25;font-weight:1000;animation:itemGuardPulse .65s ease-in-out infinite alternate}@keyframes itemGuardPulse{to{transform:scale(1.025)}}
+.item-supply-note{margin:0;font-size:12px;line-height:1.25;font-weight:900;color:#4e4336}
+
+@media(max-width:1450px){.board-status-rail{padding-top:18px}.item-rack{padding:9px}.item-button{min-height:52px}.item-button b{font-size:14px}.item-button small{font-size:11px}}
+@media(max-width:1180px){.item-rack{grid-column:1/-1}.item-buttons{grid-template-columns:repeat(3,1fr)}.item-button{grid-template-columns:30px 1fr auto}.item-supply-note{grid-column:1/-1}}
+@media(max-width:720px){.item-buttons{grid-template-columns:1fr}.item-rack-head strong{font-size:18px}.item-button b{font-size:15px}.item-button small{font-size:12px}}
