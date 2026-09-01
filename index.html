@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffd72e" />
+  <title>疯狂五子棋｜挑战赢一把｜困难模式</title>
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <h1><span>疯狂</span>五子棋</h1>
+        <p class="subtitle"><b>意外负责搞事，</b>你负责翻盘。</p>
+        <div class="challenge-strip">
+          <span class="challenge-goal">🎯 挑战：赢一把</span>
+          <span class="challenge-hard">☠ 困难挑战</span>
+          <span id="challengeAttempt" class="challenge-record">第 1 次挑战</span>
+          <span id="challengeRecord" class="challenge-record">0 胜 / 0 负</span>
+        </div>
+        <p class="hard-note">⚠ 系统会更偏向给你负面事件 · 化解意外会让疯狂值额外上涨</p>
+      </div>
+      <div class="hero-actions">
+        <button id="soundBtn" class="ghost-button sound-button" aria-pressed="true">📢 离谱音效 ON</button>
+        <button id="restartBtn" class="ghost-button restart-button">↻ 重开</button>
+      </div>
+    </section>
+
+    <section class="game-layout">
+      <div class="board-card">
+        <div class="status-row">
+          <div class="status-block"><strong id="turnLabel">⚫ 轮到你下</strong></div>
+          <div class="status-block rescue-status"><strong id="rescueLabel">🛠 化解 ×3</strong></div>
+        </div>
+
+        <div class="chaos-panel hard-chaos">
+          <div class="chaos-head">
+            <span class="chaos-title">🔥 CHAOS 疯狂值</span>
+            <span class="chaos-value"><strong id="chaosPercent">18%</strong><b id="chaosStage">困难开局</b></span>
+          </div>
+          <div class="chaos-track"><div id="chaosFill" class="chaos-fill"></div></div>
+          <p id="chaosCaption" class="chaos-caption">玩家意外约 37% · 负面事件权重更高</p>
+        </div>
+
+        <div class="start-hint">👇 点棋盘交叉点，开始困难挑战</div>
+        <div class="board-wrap">
+          <div id="board" class="board" aria-label="15乘15五子棋棋盘"></div>
+          <div id="winOverlay" class="win-overlay hidden">
+            <div class="win-card">
+              <span id="winEmoji" class="win-emoji">🎉</span>
+              <h2 id="winTitle">挑战成功！</h2>
+              <p id="winText">终于赢下一把！</p>
+              <button id="overlayRestartBtn" class="primary-button">继续挑战</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side-panel">
+        <section class="event-card event-highlight">
+          <div class="event-title-row">
+            <span class="alert-title">🚨 当前状态</span>
+            <span id="eventBadge" class="event-badge">进行中</span>
+          </div>
+          <div id="currentEvent" class="current-event">
+            <div class="event-icon">☠️</div>
+            <div><h2>困难挑战开始</h2><p>系统会更偏向给你负面事件。</p></div>
+          </div>
+          <div class="event-actions">
+            <button id="acceptBtn" class="ghost-button" disabled>😤 接受意外</button>
+            <button id="rescueBtn" class="primary-button" disabled>🛠 立即化解</button>
+          </div>
+        </section>
+
+        <section class="event-card replay-card">
+          <div class="section-heading">
+            <h3>🎬 最近事故</h3>
+            <span id="eventCount">0 次</span>
+          </div>
+          <ol id="eventLog" class="event-log"><li class="muted">暂时安全……</li></ol>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <div id="accidentOverlay" class="accident-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="accidentOverlayTitle">
+    <div class="accident-backdrop"></div>
+    <section class="accident-stage">
+      <div class="accident-tape accident-tape-top">⚠ 困难挑战 · 系统正在搞你 · 困难挑战 ⚠</div>
+      <div class="accident-kicker">🚨 突 发 意 外 🚨</div>
+      <div id="accidentTier" class="accident-tier light">🎲 轻度意外</div>
+      <div id="accidentOverlayIcon" class="accident-hero-icon">🎰</div>
+      <h2 id="accidentOverlayTitle">失控落子！</h2>
+      <p id="accidentOverlayLead" class="accident-lead">你选的位置不算数了。</p>
+      <div class="accident-next-box">
+        <span>接下来会发生什么？</span>
+        <strong id="accidentOverlayNext">系统会从整张棋盘随机挑一个空位落子。</strong>
+      </div>
+      <div id="accidentOverlayTarget" class="accident-target">🎯 原落点：H8</div>
+      <button id="accidentOverlayAuto" class="accident-auto hidden" type="button">🎬 我看懂了，让 AI 继续</button>
+      <div id="accidentOverlayActions" class="accident-overlay-actions">
+        <button id="overlayAcceptAccidentBtn" class="accident-accept-button">😤 接受意外</button>
+        <button id="overlayRescueAccidentBtn" class="accident-rescue-button">🛠 立即化解 ×3</button>
+      </div>
+      <div class="accident-footnote">⏸ 你来决定什么时候继续</div>
+      <div class="accident-tape accident-tape-bottom">⚠ 化解一次 · 疯狂值额外 +12% ⚠</div>
+    </section>
+  </div>
+
+  <script src="game.js"></script>
+  <script src="coords.js"></script>
+</body>
+</html>
