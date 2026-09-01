@@ -1,0 +1,68 @@
+/* V0.14 — 三档难度选择 */
+.mode-selector{
+  position:relative;
+  z-index:3;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin:12px 0 14px;
+}
+.mode-button{
+  min-height:50px;
+  padding:8px 7px;
+  border:3px solid var(--ink);
+  background:#fff;
+  box-shadow:3px 3px 0 var(--ink);
+  font-size:17px;
+  line-height:1.05;
+  font-weight:1000;
+  cursor:pointer;
+  transition:transform .1s ease,box-shadow .1s ease,filter .12s ease;
+}
+.mode-button:hover:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.mode-button:disabled{opacity:.55;cursor:not-allowed}
+.mode-button.active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.mode-button.easy.active{background:#9bed7f}
+.mode-button.normal.active{background:var(--yellow)}
+.mode-button.hard.active{background:#171717;color:#ffd72e;border-color:#171717}
+.mode-badge{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border:3px solid var(--ink);
+  box-shadow:3px 3px 0 var(--ink);
+  font-size:17px;
+  font-weight:1000;
+  transform:rotate(-1deg);
+}
+.mode-badge.mode-easy{background:#9bed7f}
+.mode-badge.mode-normal{background:var(--yellow)}
+.mode-badge.mode-hard{background:#171717;color:#ffd72e;box-shadow:3px 3px 0 #ff4d32}
+.challenge-summary #modeDescription{
+  display:block;
+  min-height:42px;
+  font-size:17px;
+  line-height:1.25;
+  font-weight:900;
+}
+.mode-hint{
+  position:relative;
+  z-index:2;
+  margin:0 0 10px;
+  font-size:14px;
+  line-height:1.25;
+  font-weight:900;
+  color:#655746;
+}
+body[data-mode="easy"] .chaos-panel.hard-chaos{background:linear-gradient(135deg,#eefbdc,#a7ed72 58%,#ffd72e)}
+body[data-mode="normal"] .chaos-panel.hard-chaos{background:linear-gradient(135deg,#fff5c9,#ffd72e 62%,#ff9a2d)}
+body[data-mode="hard"] .chaos-panel.hard-chaos{background:linear-gradient(135deg,#fff0ca,#ffb22e 55%,#ff5a3d)}
+@media(max-width:1450px){
+  .mode-button{font-size:15px;min-height:46px}
+}
+@media(max-width:720px){
+  .mode-selector{gap:6px}
+  .mode-button{font-size:14px;min-height:44px;padding:7px 4px}
+  .mode-badge{font-size:15px}
+  .challenge-summary #modeDescription{font-size:15px;min-height:0}
+}
